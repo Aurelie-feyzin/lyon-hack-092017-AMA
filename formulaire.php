@@ -8,32 +8,31 @@
 require_once 'CurlConnect.php';
 include "config/token.php";
 
+
+$connect = new \Wcs\CurlConnect();
 if (isset($_POST)) {
-    $connect = new \Wcs\CurlConnect();
+
     if (isset($_POST['user']) and !empty($_POST['user'])) {
         $user = $_POST['user'];
-        $result = $connect->getConnect('m4rthiz', $token);
-        print_r($result);
-
+        $link = $connect->getLink($user);
+        $result = $connect->getConnect($user,  $token);
     }
     if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
-        $avatar = true;
+        $avatar = $connect->getAvatar($result);
 
     }
 
     if (isset($_POST['threeRepo']) and !empty($_POST['threeRepo'])) {
-        $threeRepo = true;
+        $threeRepo = $connect->getAllRepo($result);
     }
 
     if (isset($_POST['nbFollowers']) and !empty($_POST['nbFollowers'])) {
-        $nbFollowers = true;
-
+        $nbFollowers = $connect->getNbFollowers($result);
     }
 
     if (isset($_POST['nbRepos']) and !empty($_POST['nbRepos'])) {
-        $nbRepo = true;
+        $nbRepo = $connect->getNbRepos($result);
     }
-
 
 }
 
