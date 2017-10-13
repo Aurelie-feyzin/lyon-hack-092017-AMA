@@ -7,6 +7,8 @@
  */
 namespace Wcs;
 
+use function Clue\StreamFilter\fun;
+
 include 'config/token.php';
 
 class CurlConnect
@@ -40,3 +42,4 @@ class CurlConnect
         return $result;
     }
 }
+
