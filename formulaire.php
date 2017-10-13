@@ -102,11 +102,11 @@ if (isset($_POST)) {
                        <div class="media-left">
                     <a href="#">
                     <img class="media-object" style="width: 70px"
-                         src="<?php echo $link ?>" alt="avatar">
+                         src="<?php echo $avatar ?>" alt="avatar">
                  </a>
                   </div>
                   <div class="media-body">
-                <a href="https://github.com/m4rthiz" class="media-heading ">github.com/m4rthiz</a>
+                <a href="<?php echo $link ?>" class="media-heading "><?php echo $link ?></a>
                 <p>repositories <span class="badge">42</span></p>
                 <p>followers <span class="badge">42</span></p>
                       </div>
