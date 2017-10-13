@@ -11,7 +11,7 @@
             <?php echo !empty($_POST['nbFollowers']) ? '<p>Followers <span class="badge">' . $nbFollowers . '</span></p>' : '' ?>
         </div>
         <?php foreach ($threeRepos as $repo): ?>
-            <p class="btn btn-default btn-xs btn-block" href="#" role="button"><?php echo $repo['name'] ?></p>
+            <a class="btn btn-default btn-xs btn-block" href="<?php echo $repo['url'] ?>" role="button" target="_blank"><?php echo $repo['name'] ?></a>
         <?php endforeach; ?>
     </div>
 </div>
