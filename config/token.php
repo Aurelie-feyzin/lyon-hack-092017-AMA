@@ -1,11 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: mar
- * Date: 13/10/17
- * Time: 00:25
- */
 
-$token = 'd595b988731f2b735c08495a4478f08e4bce1b80';
+$token = 'a68ed04bd3b6b1ef17bef007d17478d5d8337622';
 
 ?>

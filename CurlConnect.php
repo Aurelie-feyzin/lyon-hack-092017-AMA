@@ -13,15 +13,17 @@ include 'config/token.php';
 
 class CurlConnect
 {
-    private $token;
     private $user;
+    private $results;
+    private $token ;
+
     public function getConnect($user, $token)
     {
-// initialisation de la session
-        $this->user = $user;
-        $this->token = $token;
+        // initialisation de la session
         $connect = curl_init();
-// configuration des options
+
+  // configuration des options
+
         curl_setopt($connect, CURLOPT_URL, "https://api.github.com/users/" . $user . "/repos");
         curl_setopt($connect, CURLOPT_HEADER, 0);
         curl_setopt($connect, CURLOPT_RETURNTRANSFER, true);
@@ -37,9 +39,47 @@ class CurlConnect
 
 // fermeture des ressources
         curl_close($connect);
-        $result = json_decode($json, true);
-        //  print_r($result);
-        return $result;
+        $results = json_decode($json, true);
+        return $results;
     }
-}
 
+    public function getAvatar($results)
+    {
+        $avatar = $results[0]['owner']['avatar_url'];
+        return $avatar;
+    }
+
+    public function getAllRepo($results)
+    {
+        $allRepo = [];
+        $num = 0;
+        foreach ($results as $repo) {
+
+            $allRepo[$num]['name'] = $repo['name'];
+            $allRepo[$num]['date'] = $repo['updated_at'];
+            $num++;
+
+        }
+        return $allRepo;
+    }
+
+    public function getNbRepos($results)
+    {
+        $nbRepos = count($results);
+        return $nbRepos;
+    }
+
+    public function getNbFollowers($results)
+    {
+        $nbFollowers = count($results[0]['owner']['followers_url']);
+        return $nbFollowers;
+    }
+
+    public function getLink($user)
+    {
+        $link = "https://github.com/$user";
+        return $link;
+
+    }
+
+}
