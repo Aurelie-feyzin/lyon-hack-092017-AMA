@@ -33,7 +33,6 @@ if (isset($_POST)) {
 }
 
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -47,20 +46,24 @@ if (isset($_POST)) {
 </head>
 <body>
 <!-------------TEXTAREA------------------>
-<div class="form-group">
-    <label for="comment">Code</label>
-    <textarea class="form-control " rows="20" id="comment">
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <label for="comment">Code</label>
+            <textarea class="form-control " rows="20" id="comment">
                     <?php !empty($_POST) ? include 'textarea.php' : ''; ?>
     </textarea>
-</div>
+        </div>
+        <button class="btn btn-danger">Copy</button>
+        <!---------------VIEW------------------->
+        <p>Ce code permet d'avoir l'aperçu suivant :</p>
+        <div>
 
-<!---------------VIEW------------------->
-<p>Ce code permet d'avoir l'aperçu suivant :</p>
-<div>
-    <?php include 'textarea.php'; ?>
-</div>
+            <?php include 'textarea.php'; ?>
 
-<!-----------------Script----------------->
+        </div>
+    </div>
+</div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
