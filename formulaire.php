@@ -33,10 +33,7 @@ if (isset($_POST)) {
     if (isset($_POST['nbRepos']) and !empty($_POST['nbRepos'])) {
         $nbRepo = $connect->getNbRepos($result);
     }
-
 }
-
-
 ?>
 
 <!doctype html>
@@ -49,19 +46,18 @@ if (isset($_POST)) {
     <title>Document</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 </head>
 <body>
+<!-------------FORMULAIRE------------------>
 <container-fluid>
     <row>
-        <div class="col-xs-4 col-sm-4">
+        <div class="col-xs-6 col-sm-6">
             <form role="form" name="form" action="" method="post">
                 <div class="form-group ">
                     <label for="user">Github User</label>
                     <input type="text" name="user" class="form-control" id="user"
                            placeholder="User" required>
                 </div>
-
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="avatar" id="avatar" value="avatar" checked> Afficher Avatar
@@ -87,33 +83,14 @@ if (isset($_POST)) {
                 <button type="submit" class="btn btn-primary"><i class="icon icon-check icon-lg"></i> Afficher code a
                     intégrer
                 </button>
-
             </form>
+
+            <!-------------TEXTAREA------------------>
+
             <div class="form-group">
                 <label for="comment">Code</label>
-                <textarea class="form-control" rows="5" id="comment">
-
-                    <link rel="stylesheet" media="screen"
-                          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-                    <div class="container bg-info col-xs-2" style="padding: 5px;border-radius: 5px">
-                      <div class="media ">
-                       <div class="media-left">
-                    <a href="#">
-                    <img class="media-object" style="width: 70px"
-                         src="<?php echo $avatar ?>" alt="avatar">
-                 </a>
-                  </div>
-                  <div class="media-body">
-                <a href="<?php echo $link ?>" class="media-heading "><?php echo $link ?></a>
-                <p>repositories <span class="badge">42</span></p>
-                <p>followers <span class="badge">42</span></p>
-                      </div>
-                 <p class="btn btn-default btn-xs btn-block" href="#" role="button">mon repo 1</p>
-                    <p class="btn btn-default btn-xs btn-block" href="#" role="button">mon repo 2</p>
-                    <p class="btn btn-default btn-xs btn-block" href="#" role="button">mon repo 3</p>
-                 </div>
-             </div>
+                <textarea class="form-control " rows="20"  id="comment">
+                    <?php  !empty($_POST)? include'textarea.php': ''; ?>
                 </textarea>
             </div>
         </div>
