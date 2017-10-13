@@ -10,6 +10,9 @@ if (isset($_POST)) {
         $user = $_POST['user'];
         $link = $connect->getLink($user);
         $result = $connect->getConnect($user, $token);
+        if ($result['message'] === "Not Found") {
+            header('Location: index.php');
+        }
     }
     if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
         $avatar = $connect->getAvatar($result);

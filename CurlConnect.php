@@ -60,6 +60,7 @@ class CurlConnect
         }
         for ($i = 0; $i < $nbBoucle; $i++) {
             $threeRepos[$i]['name'] = $results[$i]['name'];
+            $threeRepos[$i]['url'] = $results[$i]['html_url'];
         }
         return $threeRepos;
     }
