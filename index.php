@@ -11,6 +11,8 @@
 </head>
 <body>
 <!-------------FORMULAIRE------------------>
+<div class="container">
+    <div class="row">
         <div class="col-xs-6 col-sm-6">
             <form role="form" name="form" action="view.php" method="post">
                 <div class="form-group ">
@@ -44,15 +46,7 @@
                     intégrer
                 </button>
             </form>
-
-            <!-------------TEXTAREA------------------>
-            <!--div class="form-group">
-                <label for="comment">Code</label>
-                <textarea class="form-control " rows="20" id="comment">
-                    <?php !empty($_POST) ? include 'textarea.php' : ''; ?>
-                </textarea>
-            </div>
-        </div-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        </div>
+    </div>
 </body>
 </html>
