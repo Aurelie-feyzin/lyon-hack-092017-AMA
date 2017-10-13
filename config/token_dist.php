@@ -1,4 +1,9 @@
 <?php
 
-define ("Token", "");
+/**
+ * Put here your github token
+ * @var string $token
+ */
+$token = '';
+
 

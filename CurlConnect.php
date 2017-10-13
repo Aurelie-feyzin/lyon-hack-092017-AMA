@@ -5,8 +5,8 @@
  * Date: 12/10/17
  * Time: 22:50
  */
-
 namespace Wcs;
+
 include 'config/token.php';
 
 class CurlConnect
@@ -21,6 +21,14 @@ class CurlConnect
         $connect = curl_init();
 
         // configuration des options
+    public function getConnect($user, $token)
+    {
+// initialisation de la session
+        $this->user = $user;
+        $this->token = $token;
+        $connect = curl_init();
+// configuration des options
+
         curl_setopt($connect, CURLOPT_URL, "https://api.github.com/users/" . $user . "/repos");
         curl_setopt($connect, CURLOPT_HEADER, 0);
         curl_setopt($connect, CURLOPT_RETURNTRANSFER, true);
@@ -30,18 +38,15 @@ class CurlConnect
             "Authorization: token $token",
         );
         curl_setopt($connect, CURLOPT_HTTPHEADER, $this_header);
-
 // exécution de la session
+
         $json = curl_exec($connect);
 
 // fermeture des ressources
         curl_close($connect);
-
         $results = json_decode($json, true);
-
         return $results;
     }
-
 
     public function getAvatar($results)
     {
@@ -81,6 +86,5 @@ class CurlConnect
         return $link;
 
     }
-
 
 }
