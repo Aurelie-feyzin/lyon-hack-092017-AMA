@@ -20,14 +20,7 @@ class CurlConnect
         // initialisation de la session
         $connect = curl_init();
 
-        // configuration des options
-    public function getConnect($user, $token)
-    {
-// initialisation de la session
-        $this->user = $user;
-        $this->token = $token;
-        $connect = curl_init();
-// configuration des options
+  // configuration des options
 
         curl_setopt($connect, CURLOPT_URL, "https://api.github.com/users/" . $user . "/repos");
         curl_setopt($connect, CURLOPT_HEADER, 0);
