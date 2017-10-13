@@ -57,13 +57,10 @@ if (isset($_POST)) {
 <!---------------VIEW------------------->
 <p>Ce code permet d'avoir l'aperçu suivant :</p>
 <div>
-
     <?php include 'textarea.php'; ?>
-
 </div>
 
-
-
+<!-----------------Script----------------->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
