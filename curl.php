@@ -4,6 +4,20 @@ require_once 'CurlConnect.php';
 
 $connect = new \Wcs\CurlConnect();
 
-print_r($connect->getConnect('Aurelie-feyzin'));
+$result = $connect->getConnect('m4rthiz', $token);
 
-//print_r($connect);
+$avatar = $connect->getAvatar($result);
+
+$allRepo = $connect->getAllRepo($result);
+
+$nbRepos = $connect->getNbRepos($result);
+
+$nbFollowers = $connect->getNbFollowers($result);
+
+$link = $connect->getLink('m4rthiz');
+
+echo $link . PHP_EOL;
+
+
+
+
