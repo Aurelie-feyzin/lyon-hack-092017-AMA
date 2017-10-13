@@ -1,34 +1,3 @@
-<?php
-require_once 'CurlConnect.php';
-include "config/token.php";
-
-
-$connect = new \Wcs\CurlConnect();
-if (isset($_POST)) {
-
-    if (isset($_POST['user']) and !empty($_POST['user'])) {
-        $user = $_POST['user'];
-        $link = $connect->getLink($user);
-        $result = $connect->getConnect($user, $token);
-    }
-    if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
-        $avatar = $connect->getAvatar($result);
-    }
-
-    if (isset($_POST['threeRepo']) and !empty($_POST['threeRepo'])) {
-        $threeRepos = $connect->getThreeRepo($result);
-    }
-
-    if (isset($_POST['nbFollowers']) and !empty($_POST['nbFollowers'])) {
-        $nbFollowers = $connect->getNbFollowers($result);
-    }
-
-    if (isset($_POST['nbRepos']) and !empty($_POST['nbRepos'])) {
-        $nbRepo = $connect->getNbRepos($result);
-    }
-}
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -36,14 +5,14 @@ if (isset($_POST)) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Snippet : Generator code</title>
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
 <!-------------FORMULAIRE------------------>
         <div class="col-xs-6 col-sm-6">
-            <form role="form" name="form" action="" method="post">
+            <form role="form" name="form" action="view.php" method="post">
                 <div class="form-group ">
                     <label for="user">Github User</label>
                     <input type="text" name="user" class="form-control" id="user"
@@ -77,13 +46,13 @@ if (isset($_POST)) {
             </form>
 
             <!-------------TEXTAREA------------------>
-            <div class="form-group">
+            <!--div class="form-group">
                 <label for="comment">Code</label>
                 <textarea class="form-control " rows="20" id="comment">
                     <?php !empty($_POST) ? include 'textarea.php' : ''; ?>
                 </textarea>
             </div>
-        </div>
+        </div-->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
