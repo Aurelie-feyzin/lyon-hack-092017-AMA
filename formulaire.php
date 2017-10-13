@@ -5,6 +5,43 @@
  * Date: 13/10/17
  * Time: 00:08
  */
+require_once 'CurlConnect.php';
+include "config/token.php";
+
+if (isset($_POST)) {
+    $connect = new \Wcs\CurlConnect();
+    if (isset($_POST['user']) and !empty($_POST['user'])) {
+        $user = $_POST['user'];
+        $result = $connect->getConnect('m4rthiz',  $token);
+        print_r($result);
+
+    }
+    if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
+        $avatar = true;
+
+    }
+
+    if (isset($_POST['threeRepo']) and !empty($_POST['threeRepo'])) {
+        $threeRepo = true;
+    }
+
+    if (isset($_POST['nbFollowers']) and !empty($_POST['nbFollowers'])) {
+        $nbFollowers = true;
+
+    }
+
+    if (isset($_POST['nbRepos']) and !empty($_POST['nbRepos'])) {
+        $nbRepo = true;
+    }
+
+
+
+}
+
+
+
+
+
 ?>
 
 <!doctype html>
@@ -25,37 +62,37 @@
         <div class="col-xs-4 col-sm-4">
         <form role="form" name="form" action="" method="post">
             <div class="form-group ">
-                <label for="exampleInputEmail1">Github User</label>
-                <input type="text" name="inputUser" class="form-control" id=""
-                       placeholder="User">
+                <label for="user">Github User</label>
+                <input type="text" name="user" class="form-control" id="user"
+                       placeholder="User" required>
             </div>
 
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="inputCheck" id="" value="" checked> Afficher Avatar
+                    <input type="checkbox" name="avatar" id="avatar" value="avatar" checked> Afficher Avatar
                 </label>
             </div><div class="checkbox">
                 <label>
-                    <input type="checkbox" name="inputCheck" id="" id="" value="" checked> Afficher 3 premiers repos avec leur dates
+                    <input type="checkbox" name="threeRepo" id="threeRepo"  value="threeRepo" checked> Afficher 3 premiers repos avec leur dates
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="inputCheck" id="" value=""> Afficher nombre de followers
+                    <input type="checkbox" name="nbFollowers" id="nbFollowers" value="nbFollowers"> Afficher nombre de followers
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="inputCheck" id=""> Afficher nombre de repos
+                    <input type="checkbox" name="nbRepos" id="nbRepos" value="nbRepos"> Afficher nombre de repos
                 </label>
             </div>
             <button type="submit" class="btn btn-primary"><i class="icon icon-check icon-lg"></i> Afficher code a intégrer</button>
 
+        </form>
             <div class="form-group">
                 <label for="comment">Code</label>
-                <textarea class="form-control" rows="5" id=""></textarea>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
             </div>
-        </form>
         </div>
 
 

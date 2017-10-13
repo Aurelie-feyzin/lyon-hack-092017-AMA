@@ -4,8 +4,8 @@ require_once 'CurlConnect.php';
 
 
 $connect = new \Wcs\CurlConnect();
-
-$result = $connect->getConnect('m4rthiz',  $token);
+$user = 'm4rthiz';
+$result = $connect->getConnect($user,  $token);
 
 $avatar = $connect->getAvatar($result);
 
