@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: andy
- * Date: 13/10/17
- * Time: 00:08
- */
 require_once 'CurlConnect.php';
 include "config/token.php";
 
@@ -15,15 +9,14 @@ if (isset($_POST)) {
     if (isset($_POST['user']) and !empty($_POST['user'])) {
         $user = $_POST['user'];
         $link = $connect->getLink($user);
-        $result = $connect->getConnect($user,  $token);
+        $result = $connect->getConnect($user, $token);
     }
     if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
         $avatar = $connect->getAvatar($result);
-
     }
 
     if (isset($_POST['threeRepo']) and !empty($_POST['threeRepo'])) {
-        $threeRepo = $connect->getAllRepo($result);
+        $threeRepos = $connect->getThreeRepo($result);
     }
 
     if (isset($_POST['nbFollowers']) and !empty($_POST['nbFollowers'])) {
@@ -49,8 +42,6 @@ if (isset($_POST)) {
 </head>
 <body>
 <!-------------FORMULAIRE------------------>
-<container-fluid>
-    <row>
         <div class="col-xs-6 col-sm-6">
             <form role="form" name="form" action="" method="post">
                 <div class="form-group ">
@@ -86,17 +77,13 @@ if (isset($_POST)) {
             </form>
 
             <!-------------TEXTAREA------------------>
-
             <div class="form-group">
                 <label for="comment">Code</label>
-                <textarea class="form-control " rows="20"  id="comment">
-                    <?php  !empty($_POST)? include'textarea.php': ''; ?>
+                <textarea class="form-control " rows="20" id="comment">
+                    <?php !empty($_POST) ? include 'textarea.php' : ''; ?>
                 </textarea>
             </div>
         </div>
-
-    </row>
-</container-fluid>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
