@@ -1,4 +1,4 @@
 .idea/
 /vendor/
-config/token.php/
+/config/token.php
 Supprimerait .gitignore
