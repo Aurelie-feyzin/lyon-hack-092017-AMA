@@ -22,7 +22,7 @@
                 </div>
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="avatar" id="avatar" value="avatar" checked> Afficher Avatar
+                        <input type="checkbox" name="avatar" id="avatar" value="avatar" checked disabled> Afficher Avatar
                     </label>
                 </div>
                 <div class="checkbox">

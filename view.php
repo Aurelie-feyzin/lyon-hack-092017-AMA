@@ -14,9 +14,9 @@ if (isset($_POST)) {
             header('Location: index.php');
         }
     }
-    if (isset($_POST['avatar']) and !empty($_POST['avatar'])) {
+
         $avatar = $connect->getAvatar($result);
-    }
+
 
     if (isset($_POST['threeRepo']) and !empty($_POST['threeRepo'])) {
         $threeRepos = $connect->getThreeRepo($result);
@@ -54,8 +54,7 @@ if (isset($_POST)) {
                     <?php !empty($_POST) ? include 'textarea.php' : ''; ?>
     </textarea>
         </div>
-        <button class="btn btn-danger">Copy</button>
-        <!---------------VIEW------------------->
+        <button class="btn btn-info" id="copy-button" data-clipboard-target="#comment">Copier le code</button>        <!---------------VIEW------------------->
         <p>Ce code permet d'avoir l'aperçu suivant :</p>
         <div>
 
@@ -65,6 +64,7 @@ if (isset($_POST)) {
     </div>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
